@@ -730,6 +730,17 @@ func NewRemoveKeyboard(selective bool) ReplyKeyboardRemove {
 	}
 }
 
+// NewRemoveInlineKeyboard hides the inline keyboard reply markup.
+func NewRemoveInlineKeyboard(chatID int64, messageID int) EditMessageReplyMarkupConfig {
+	return EditMessageReplyMarkupConfig{
+		BaseEdit: BaseEdit{
+			ChatID:      chatID,
+			MessageID:   messageID,
+			ReplyMarkup: nil,
+		},
+	}
+}
+
 // NewKeyboardButton creates a regular keyboard button.
 func NewKeyboardButton(text string) KeyboardButton {
 	return KeyboardButton{
